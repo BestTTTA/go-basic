@@ -2,16 +2,25 @@ package main
 
 import "fmt"
 
+//easy to unit testing
 type (
 	Database interface {
 		Insert() error
 		Update() error
 	}
 
-	PostgresDb struct{} // Real database
+	PostgresDb struct{} 
 
 	MockDb struct{}
 )
+
+
+func NewProgresdb() Database{
+	return &PostgresDb{}
+} 
+func NewMockdb() Database{
+	return &MockDb{}
+} 
 
 func (p *PostgresDb) Insert() error {
 	fmt.Println("Real Insert!!!")

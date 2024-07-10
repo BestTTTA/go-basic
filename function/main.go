@@ -19,9 +19,16 @@ func main() {
 	// double(n)
 	// fmt.Println(n)
 
+	//anonymos function
 	result := func(a, b int) int {
 		return a + b
 	}(1, 2)
+
+	//anonymos function
+	func() {
+		name := "Best"
+		fmt.Print(name)
+	}()
 
 	fmt.Println(result)
 }

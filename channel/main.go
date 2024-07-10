@@ -5,18 +5,21 @@ import (
 	"time"
 )
 
+//state for store some data highe level more than wait if data on channel full condition can end
 func main() {
 	jobCh := make(chan int, 10)
 	resultCh := make(chan int, 10)
 
-	for i := range 10 {
+	for i := range  10{
 		jobCh <- i + 1
+		fmt.Println(i + 1)
 	}
 	close(jobCh)
 
-	for range 2 {
-		go double(jobCh, resultCh)
-	}
+	go double(jobCh, resultCh)
+	// for range 2 {
+	// 	go double(jobCh, resultCh)
+	// }
 
 	for range 10 {
 		result := <-resultCh

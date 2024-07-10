@@ -7,11 +7,14 @@ import (
 )
 
 func main() {
-	// fmt.Println(calculator.Add(1, 2))
 
+	// fmt.Println(calculator.Add(1, 2))
 	e := echo.New()
 	e.GET("/", func(c echo.Context) error {
 		return c.String(http.StatusOK, "Hello, World!")
 	})
 	e.Logger.Fatal(e.Start(":1323"))
 }
+
+
+//install external package use this command "go get <pakage_name>@version -> version is optional"
