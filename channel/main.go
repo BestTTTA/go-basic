@@ -10,7 +10,7 @@ func main() {
 	jobCh := make(chan int, 10)
 	resultCh := make(chan int, 10)
 
-	for i := range  10{
+	for i := range 10{
 		jobCh <- i + 1
 		fmt.Println(i + 1)
 	}
@@ -21,7 +21,7 @@ func main() {
 	// 	go double(jobCh, resultCh)
 	// }
 
-	for range 10 {
+	for i := range 10 {
 		result := <-resultCh
 		fmt.Println(result)
 	}
